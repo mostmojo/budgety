@@ -10,3 +10,5 @@ var budgetController = (function() {
         }
     }
 })();
+
+// budgetController.publicTest(5) => 28 because of the closure. param b has access to param a above, replaces it and then 23 + 5 is calc'd
