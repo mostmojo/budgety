@@ -33,6 +33,8 @@
 
 ---------
 
+### Closure notes
+
 * In closures, the returning value of a method or function becomes the object in a simple `k:v pair`
 * ex.
 ```
@@ -40,7 +42,7 @@ var myBankAccount = (function() {
   var balance = 0;
 
   return {
-    getBalance: function(){
+    getBalance: function() {
                   return balance
                 }
   }
