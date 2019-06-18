@@ -30,3 +30,26 @@
 3; **CONTROLLER MODULE**
 
 * Add event handler
+
+---------
+
+* In closures, the returning value of a method or function becomes the object in a simple `k:v pair`
+* ex.
+```
+var myBankAccount = (function() {
+  var balance = 0;
+
+  return {
+    getBalance: function(){
+                  return balance
+                }
+  }
+})()
+
+```
+* balance is still reachable by this function since it was captured inside the closure
+* this will return { `getBalance: 0` }, allowing access to it by myBankAccount.getBalance = 0;
+* because balance is closed off, only myBankAccount can do things with it now, nobody outside has access to balance
+* the javascript engine knows that balance is still referenced in various places so it doesnt get removed from memory
+* More explanation: it looks like the value of `myBankAccount` is being assigned to a `function`, but the `()` at the end means the function gets immediately called, and whatever that function _returns_ becomes the `value` of `myBankAccount` ...and it returns a plain old object `k:v`
+* 'packing away variables into little impenetrable boxes by returning indirect references to them' - AG 😅
