@@ -28,8 +28,10 @@ var AppController = (function(budgetCtrl, UICtrl) { // these are params
         console.log('It works yolo')
     }
 
+    // When ADD BTN is clicked: No need for () on ctrlAddItem as it's a callback, triggered on click event by addEventListener
     document.querySelector('.add__btn').addEventListener('click', ctrlAddItem)
 
+    // When ENTER key is pressed, then get ctrlAddItem to run
     document.addEventListener('keypress', function(event) {
         if (event.key === "Enter") {
             ctrlAddItem();
