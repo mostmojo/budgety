@@ -4,18 +4,27 @@ var budgetController = (function() {
 })();
 
 
-
-// UI CONTROLLER
+// UI CONTROLLER (Grabs any value the user inputs into the given fields)
 var UIController = (function() {
-// Some code
-})();
 
+    return {
+        getInput: function() {
+            return {
+                type: document.querySelector('.add__type').value, // Will be either `inc` or `exp`
+                description: document.querySelector('.add__description').value,
+                value: document.querySelector('.add__value').value
+            }
+        }
+    }
+})();
 
 
 // GLOBAL APP CONTROLLER
 var AppController = (function(budgetCtrl, UICtrl) { // these are params
     var ctrlAddItem = function() {
         // 1. Get the field input data
+        var input = UICtrl.getInput(); // can access the public object values from var UIController
+        console.log(input);
 
         // 2. Add the item to budget controller
 
@@ -24,14 +33,10 @@ var AppController = (function(budgetCtrl, UICtrl) { // these are params
         // 4. Calculate the budget
 
         // 5. Display the budget to UI
-
-        console.log('It works yolo')
     }
 
-    // When ADD BTN is clicked: No need for () on ctrlAddItem as it's a callback, triggered on click event by addEventListener
     document.querySelector('.add__btn').addEventListener('click', ctrlAddItem)
 
-    // When ENTER key is pressed, then get ctrlAddItem to run
     document.addEventListener('keypress', function(event) {
         if (event.key === "Enter") {
             ctrlAddItem();
