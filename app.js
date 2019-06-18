@@ -11,4 +11,5 @@ var budgetController = (function() {
     }
 })();
 
-// budgetController.publicTest(5) => 28 because of the closure. param b has access to param a above, replaces it and then 23 + 5 is calc'd
+// budgetController.x || budgetController.add return undefined because they are in function scope and can't be accessed.
+// budgetController.publicTest(5) => 28, because of the closure. param `b` has access to param `a` above, replaces it and then 23 + 5 is calculated.

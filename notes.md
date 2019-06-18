@@ -12,13 +12,13 @@
 
 * Import aspect of any robust app architecture
 * Keep units of code for a project both cleanly separated and organized
-* Encapsulate some data into privacy and expose other data publicly
+* Encapsulate some data privately and expose other data publicly
 
 ----------
 
 1; **UI MODULE**
 
-* Get input values
+* Get input values from form
 * Add new item to UI
 * Update UI
 
