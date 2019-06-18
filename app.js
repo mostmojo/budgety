@@ -29,25 +29,34 @@ var UIController = (function() {
 
 // GLOBAL APP CONTROLLER
 var AppController = (function(budgetCtrl, UICtrl) { // these are params
-
 	var DOM = UICtrl.getDOMStrings(); // can access the public object values from var UIController
+
+    var setupEventListeners = function() {
+        document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
+        document.addEventListener('keypress', function(event) {
+            if (event.key === 'Enter') {
+                ctrlAddItem();
+            }
+        });
+    };
 
 	var ctrlAddItem = function() {
 		// 1. Get the field input data
 		var input = UICtrl.getInput(); // can access the public object values from var UIController
-		console.log(input);
 
 		// 2. Add the item to budget controller
 		// 3. Add the item to UI
 		// 4. Calculate the budget
 		// 5. Display the budget to UI
-	};
+    };
 
-	document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
+    return {
+        init: function() {
+            console.log('Application has started.');
+            setupEventListeners();
+        }
+    }
 
-	document.addEventListener('keypress', function(event) {
-		if (event.key === 'Enter') {
-			ctrlAddItem();
-		}
-	});
 })(budgetController, UIController);
+
+AppController.init();
