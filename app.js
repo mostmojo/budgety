@@ -96,9 +96,7 @@ var UIController = (function() {
 		clearFields: function() {
 			var fields, fieldsArr;
 			fields = document.querySelectorAll(DOMstrings.inputDescription + ', ' + DOMStrings.inputValue);
-
 			fieldsArr = Array.prototype.slice.call(fields);
-
 			fieldsArr.forEach(function(current, index, array) {
 				current.value = "";
 			})
@@ -133,6 +131,7 @@ var AppController = (function(budgetCtrl, UICtrl) {
 		// 3. Add the item to UI
 		UICtrl.addListItem(newItem, input.type);
 		// 4. Clear the fields
+		UICtrl.clearFields();
 		// 5. Calculate the budget
 		// 6. Display the budget to UI
 	};
