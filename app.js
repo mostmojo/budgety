@@ -12,7 +12,7 @@ var UIController = (function() {
 		inputBtn: '.add__btn'
 	};
 
-	return { // Anything returned from UIController below is made public, can thus can be accessed by global appController
+	return { // Anything returned from UIController below is made public, thus can be accessed by global appController
 		getInput: function() {
 			return {
 				type: document.querySelector(DOMStrings.inputType).value, // Will be either `inc (+)` or `exp (-)`
@@ -28,12 +28,12 @@ var UIController = (function() {
 })();
 
 // GLOBAL APP CONTROLLER
-var AppController = (function(budgetCtrl, UICtrl) { // these are params
-	var DOM = UICtrl.getDOMStrings(); // can access the public object values from var UIController
+var AppController = (function(budgetCtrl, UICtrl) {
+	var getDOMStringsFromUIController = UICtrl.getDOMStrings(); // function that can access public object values from private var UIController
 
     var setupEventListeners = function() {
-        document.querySelector(DOM.inputBtn).addEventListener('click', ctrlAddItem);
-        document.addEventListener('keypress', function(event) {
+        document.querySelector(getDOMStringsFromUIController.inputBtn).addEventListener('click', ctrlAddItem); // when .add-btn is clicked callback ctrlAddItem
+        document.addEventListener('keypress', function(event) { // when enter key event is pressed, call ctrlAddItem;
             if (event.key === 'Enter') {
                 ctrlAddItem();
             }
