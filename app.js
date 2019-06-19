@@ -62,7 +62,6 @@ var UIController = (function() {
 		inputBtn: '.add__btn',
 		incomeContainer: '.income__list',
 		expensesContainer: '.expenses__list'
-
 	};
 
 	return {
@@ -71,7 +70,7 @@ var UIController = (function() {
 			return {
 				type: document.querySelector(DOMStrings.inputType).value, // Will be either `inc (+)` or `exp (-)`
 				description: document.querySelector(DOMStrings.inputDescription).value,
-				value: document.querySelector(DOMStrings.inputValue).value
+				value: parseFloat(document.querySelector(DOMStrings.inputValue).value)
 			};
 		},
 
@@ -124,6 +123,14 @@ var AppController = (function(budgetCtrl, UICtrl) {
 		});
 	};
 
+	var updateBudget = function() {
+		// 1. Calculate budget
+
+		// 2. return the budget
+
+		// 3. Display budget to UI
+	}
+
 	var ctrlAddItem = function() {
 		var input, newItem;
 		// 1. Get the field input data
@@ -134,8 +141,8 @@ var AppController = (function(budgetCtrl, UICtrl) {
 		UICtrl.addListItem(newItem, input.type);
 		// 4. Clear the fields
 		UICtrl.clearFields();
-		// 5. Calculate the budget
-		// 6. Display the budget to UI
+		// 5. Calculate and update budget
+		updateBudget();
 	};
 
 	return {
