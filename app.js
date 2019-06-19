@@ -1,7 +1,31 @@
 // BUDGET CONTROLLER
 var budgetController = (function() {
-	// Some code
+
+	var Expense = function(id, description, value) {
+		this.id = id;
+		this.description = description;
+		this.value = value;
+	};
+
+	var Income = function(id, description, value) {
+		this.id = id;
+		this.description = description;
+		this.value = value;
+	};
+
+	var data = {
+		allItems: {
+			expenses: [],
+			incomes: []
+		},
+		totals: {
+			expenses: 0,
+			incomes: 0
+		}
+	}
+
 })();
+
 
 // UI CONTROLLER (Grabs any value the user inputs into the given fields)
 var UIController = (function() {
@@ -12,7 +36,8 @@ var UIController = (function() {
 		inputBtn: '.add__btn'
 	};
 
-	return { // Anything returned from UIController below is made public, thus can be accessed by global appController
+	return {
+		// Anything returned from UIController below is made public, thus can be accessed by global appController
 		getInput: function() {
 			return {
 				type: document.querySelector(DOMStrings.inputType).value, // Will be either `inc (+)` or `exp (-)`
@@ -31,32 +56,31 @@ var UIController = (function() {
 var AppController = (function(budgetCtrl, UICtrl) {
 	var getDOMStringsFromUIController = UICtrl.getDOMStrings(); // function that can access public object values from private var UIController
 
-    var setupEventListeners = function() {
-        document.querySelector(getDOMStringsFromUIController.inputBtn).addEventListener('click', ctrlAddItem); // when .add-btn is clicked callback ctrlAddItem
-        document.addEventListener('keypress', function(event) { // when enter key event is pressed, call ctrlAddItem;
-            if (event.key === 'Enter') {
-                ctrlAddItem();
-            }
-        });
-    };
+	var setupEventListeners = function() {
+		document.querySelector(getDOMStringsFromUIController.inputBtn).addEventListener('click', ctrlAddItem); // when .add-btn is clicked callback ctrlAddItem
+		document.addEventListener('keypress', function(event) {
+			// when enter key event is pressed, call ctrlAddItem;
+			if (event.key === 'Enter') {
+				ctrlAddItem();
+			}
+		});
+	};
 
 	var ctrlAddItem = function() {
 		// 1. Get the field input data
 		var input = UICtrl.getInput(); // can access the public object values from var UIController
-
 		// 2. Add the item to budget controller
 		// 3. Add the item to UI
 		// 4. Calculate the budget
 		// 5. Display the budget to UI
-    };
+	};
 
-    return {
-        init: function() {
-            console.log('Application has started.');
-            setupEventListeners();
-        }
-    }
-
+	return {
+		init: function() {
+			console.log('Application has started.');
+			setupEventListeners();
+		}
+	};
 })(budgetController, UIController);
 
 AppController.init();
