@@ -29,7 +29,11 @@ var budgetController = (function() {
 			var newItem, ID;
 
 			// Create new ID
-			ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
+			if (data.allItems[type].length > 0){
+				ID = data.allItems[type][data.allItems[type].length - 1].id + 1;
+			} else {
+				ID = 0;
+			}
 
 			// Create new items based on 'inc' or 'exp' type
 			if (type === 'exp') {
@@ -89,9 +93,11 @@ var AppController = (function(budgetCtrl, UICtrl) {
 	};
 
 	var ctrlAddItem = function() {
+		var input, newItem;
 		// 1. Get the field input data
-		var input = UICtrl.getInput(); // can access the public object values from var UIController
+		input = UICtrl.getInput(); // can access the public object values from var UIController
 		// 2. Add the item to budget controller
+		newItem = budgetCtrl.addItem(input.type, input.description, input.value);
 		// 3. Add the item to UI
 		// 4. Calculate the budget
 		// 5. Display the budget to UI
