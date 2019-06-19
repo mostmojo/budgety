@@ -72,6 +72,14 @@ var UIController = (function() {
 			};
 		},
 
+		addListItem: function(obj, type) {
+			// Create HTML string with placeholder text
+
+			// Replace the placeholder text with some actual data
+
+			// Insert HTML into the DOM
+		},
+
 		getDOMStrings: function() {
 			return DOMStrings; // this exposes the private DOMStrings object into the public
 		}
