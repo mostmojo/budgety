@@ -55,3 +55,5 @@ var myBankAccount = (function() {
 * The javascript engine knows that balance is still referenced in various places so it doesnt get removed from memory
 * More explanation: it looks like the value of `myBankAccount` is being assigned to a `function`, but the `()` at the end means the function gets immediately called, and whatever that function _returns_ becomes the `value` of `myBankAccount` ...and it returns a plain old object `k:v`
 * 'Packing away variables into little impenetrable boxes by returning indirect references to them' - AG 😅
+
+
