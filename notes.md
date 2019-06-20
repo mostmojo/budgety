@@ -56,4 +56,10 @@ var myBankAccount = (function() {
 * More explanation: it looks like the value of `myBankAccount` is being assigned to a `function`, but the `()` at the end means the function gets immediately called, and whatever that function _returns_ becomes the `value` of `myBankAccount` ...and it returns a plain old object `k:v`
 * 'Packing away variables into little impenetrable boxes by returning indirect references to them' - AG 😅
 
+------
+### App notes
+
+* Adding a condition like `if(input.description !== "" && !isNaN(input.value) && input.value > 0)` checks whether description is not empty, and the NaN operator boolean is false, thus there is a numeric value and it's also > 0.
+
+
 
