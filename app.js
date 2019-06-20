@@ -178,7 +178,7 @@ var AppController = (function(budgetCtrl, UICtrl) {
 		// 2. return the budget
 		var budget = budgetCtrl.getBudget();
 		// 3. Display budget to UI
-		console.log(budget);
+		UICtrl.displayBudget(budget);
 	}
 
 	var ctrlAddItem = function() {
