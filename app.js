@@ -207,9 +207,14 @@ var AppController = (function(budgetCtrl, UICtrl) {
 		}
 	};
 
-	var ctrlDeleteItem = function() {
+	var ctrlDeleteItem = function(event) {
+		var itemID;
 
-	}
+		itemID = (event.target.parentNode.parentNode.parentNode.parentNode.id);
+		if (itemID) {
+
+		}
+	};
 
 	return {
 		init: function() {
