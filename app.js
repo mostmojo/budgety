@@ -99,7 +99,11 @@ var UIController = (function() {
 		inputValue: '.add__value',
 		inputBtn: '.add__btn',
 		incomeContainer: '.income__list',
-		expensesContainer: '.expenses__list'
+		expensesContainer: '.expenses__list',
+		budgetLabel: '.budget__value',
+		incomeLabel: '.budget__income--value',
+		expensesLabel: '.budget__expenses--value',
+		percentageLabel: '.budget__expenses--percentage'
 	};
 
 	return {
@@ -139,6 +143,10 @@ var UIController = (function() {
 			})
 
 			fieldsArr[0].focus();
+		},
+
+		displayBudget: function(obj) {
+
 		},
 
 		getDOMStrings: function() {
