@@ -13,6 +13,14 @@ var budgetController = (function() {
 		this.value = value;
 	};
 
+	var calculateTotal = function(type) {
+		var sum = 0;
+		data.allItems[type].forEach(function(cur) {
+			sum += cur.value; // cur aka current refers to income or expense object stored in that array, in the data object. So, take the values by index, of the exp or inc array and sum them up
+		});
+		data.totals[type] = sum;
+	}
+
 	var data = {
 		allItems: {
 			exp: [],
