@@ -47,6 +47,20 @@ var budgetController = (function() {
 
 			// Return new element
 			return newItem;
+		},
+
+		calculateBudget: function() {
+
+			// 1. Calculate total income and expenses
+
+			// 2. Calculate the budget: income - expenses
+
+			// 3. Calculate the percentage of income that we spend
+
+		},
+
+		testing: function() {
+			console.log(data);
 		}
 	}
 
@@ -125,6 +139,7 @@ var AppController = (function(budgetCtrl, UICtrl) {
 
 	var updateBudget = function() {
 		// 1. Calculate budget
+
 
 		// 2. return the budget
 
