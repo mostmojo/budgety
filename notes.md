@@ -42,13 +42,15 @@
 
 * Add event handler
 
----------
+----------
 
 ### Closure notes
 
 * In closures, the returning value of a method or function becomes the object in a simple `k:v pair`
 * ex.
+
 ```
+
 var myBankAccount = (function() {
   var balance = 0;
 
@@ -60,6 +62,7 @@ var myBankAccount = (function() {
 })()
 
 ```
+
 * Balance is still reachable by this function since it was captured inside the closure
 * This will return { `getBalance: 0` }, allowing access to it by myBankAccount.getBalance = 0;
 * Because balance is closed off, only myBankAccount can do things with it now, nobody outside has access to balance
@@ -67,18 +70,20 @@ var myBankAccount = (function() {
 * More explanation: it looks like the value of `myBankAccount` is being assigned to a `function`, but the `()` at the end means the function gets immediately called, and whatever that function _returns_ becomes the `value` of `myBankAccount` ...and it returns a plain old object `k:v`
 * 'Packing away variables into little impenetrable boxes by returning indirect references to them' - AG 😅
 
-------
+----------
+
 ### App notes
 
 * Adding a condition like `if(input.description !== "" && !isNaN(input.value) && input.value > 0)` checks whether description is not empty, and the NaN operator boolean is false, thus there is a numeric value and it's also > 0.
 
-----
+----------
+
 ### High level overview of app
 
 <p align="center">
   <img width="720" height="420" src="https://res.cloudinary.com/mostmojo/image/upload/v1561041646/Screenshot_2019-06-20_at_15.38.40.png">
 </p>
-____
+----------
 
 ### Event bubbling, target element and event delegation
 
@@ -88,4 +93,30 @@ Use cases:
 
 2; When we want an event handler attached to an element that is not yet in the DOM when our page is loaded (for example our income and expenses that the user has not yet typed in)
 
-----
+----------
+
+### Delete an item
+
+```
+
+deleteItem: function(type, id) {
+  var ids, index;
+
+  // id = 6
+  // data.allItems[type][id];
+  // ids = [1 2 4 6 8]
+  // index = 3
+
+  var ids = data.allItems[type].map(function(current){ //creates new array, with value of current argument too
+    return current.id; // say a 6 was passed in here, or that's what we want, we use indexOf() to find its index
+  });
+
+  index = ids.indexOf(id);
+
+  if (index !== -1) {
+    data.allItems[type].splice(index, 1);
+  }
+}
+
+
+```

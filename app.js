@@ -36,7 +36,11 @@ var budgetController = (function() {
 
 	return {
 		addItem: function(type, desc, val) {
-			var newItem, ID;
+            var newItem, ID;
+
+            // [1 2 3 4 5], next ID = 6
+            // [1 3 4 6 8], next ID = 9
+            // ID = last ID + 1
 
 			// Create new ID
 			if (data.allItems[type].length > 0){
@@ -57,7 +61,26 @@ var budgetController = (function() {
 
 			// Return new element
 			return newItem;
-		},
+        },
+
+        deleteItem: function(type, id) {
+            var ids, index;
+
+            // id = 6
+            // data.allItems[type][id];
+            // ids = [1 2 4 6 8]
+            // index = 3
+
+            var ids = data.allItems[type].map(function(current){ //creates new array, same as old one with value of current argument too
+                return current.id; // say a 6 was passed in here, or that's what we want, we use indexOf() to find its index
+            });
+
+            index = ids.indexOf(id);
+
+            if (index !== -1) {
+                data.allItems[type].splice(index, 1);
+            }
+        },
 
 		calculateBudget: function() { // has access to the private calculateTotal func because closures 🧙‍♂️
 			// 1. Calculate total income and expenses (type: exp/inc from data object)
