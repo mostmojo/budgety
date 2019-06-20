@@ -50,7 +50,6 @@
 * ex.
 
 ```
-
 var myBankAccount = (function() {
   var balance = 0;
 
@@ -60,7 +59,6 @@ var myBankAccount = (function() {
                 }
   }
 })()
-
 ```
 
 * Balance is still reachable by this function since it was captured inside the closure
@@ -83,6 +81,7 @@ var myBankAccount = (function() {
 <p align="center">
   <img width="720" height="420" src="https://res.cloudinary.com/mostmojo/image/upload/v1561041646/Screenshot_2019-06-20_at_15.38.40.png">
 </p>
+
 ----------
 
 ### Event bubbling, target element and event delegation
@@ -98,7 +97,6 @@ Use cases:
 ### Delete an item
 
 ```
-
 deleteItem: function(type, id) {
   var ids, index;
 
@@ -117,6 +115,4 @@ deleteItem: function(type, id) {
     data.allItems[type].splice(index, 1);
   }
 }
-
-
 ```
