@@ -1,11 +1,22 @@
 # TO DO
 
+## Pt. 1
+
 * Add event listener to button
 * Get input values from form
 * Add the new item to data structure
 * Add new item to UI
 * Calculate budget
 * Update UI
+
+## Pt. 2
+
+* Add event handler
+* Delete the item from data structure
+* Delete item from UI
+* Re-calculate budget
+* Update the UI
+
 ----------
 
 ## Modules
@@ -61,5 +72,9 @@ var myBankAccount = (function() {
 
 * Adding a condition like `if(input.description !== "" && !isNaN(input.value) && input.value > 0)` checks whether description is not empty, and the NaN operator boolean is false, thus there is a numeric value and it's also > 0.
 
+----
+### High level overview of app
 
-
+<p align="center">
+  <img width="720" height="420" src="https://res.cloudinary.com/mostmojo/image/upload/v1561041646/Screenshot_2019-06-20_at_15.38.40.png">
+</p>
