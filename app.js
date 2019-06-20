@@ -103,7 +103,8 @@ var UIController = (function() {
 		budgetLabel: '.budget__value',
 		incomeLabel: '.budget__income--value',
 		expensesLabel: '.budget__expenses--value',
-		percentageLabel: '.budget__expenses--percentage'
+		percentageLabel: '.budget__expenses--percentage',
+		container: '.container'
 	};
 
 	return {
@@ -175,7 +176,9 @@ var AppController = (function(budgetCtrl, UICtrl) {
 				ctrlAddItem();
 			}
 		});
+		document.querySelector(getDOMStringsFromUIController.container).addEventListener('click', ctrlDeleteItem);
 	};
+
 
 	var updateBudget = function() {
 		// 1. Calculate budget
@@ -203,6 +206,10 @@ var AppController = (function(budgetCtrl, UICtrl) {
 		updateBudget();
 		}
 	};
+
+	var ctrlDeleteItem = function() {
+
+	}
 
 	return {
 		init: function() {

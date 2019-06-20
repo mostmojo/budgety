@@ -78,3 +78,14 @@ var myBankAccount = (function() {
 <p align="center">
   <img width="720" height="420" src="https://res.cloudinary.com/mostmojo/image/upload/v1561041646/Screenshot_2019-06-20_at_15.38.40.png">
 </p>
+____
+
+### Event bubbling, target element and event delegation
+
+Use cases:
+
+1; When we have element with child elements we're interested in - no need to add event handler to all children, just the parent
+
+2; When we want an event handler attached to an element that is not yet in the DOM when our page is loaded (for example our income and expenses that the user has not yet typed in)
+
+----
