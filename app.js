@@ -60,7 +60,6 @@ var budgetController = (function() {
 		},
 
 		calculateBudget: function() { // has access to the private calculateTotal func because closures 🧙‍♂️
-
 			// 1. Calculate total income and expenses (type: exp/inc from data object)
 			calculateTotal('exp');
 			calculateTotal('inc');
@@ -68,6 +67,15 @@ var budgetController = (function() {
 			data.budget = data.totals.inc - data.totals.exp;
 			// 3. Calculate the percentage of income that we spend (exp/inc * 100)
 			data.percentage = Math.round((data.totals.exp / data.totals.inc) * 100);
+		},
+
+		getBudget: function() {
+			return {
+				budget: data.budget,
+				totalInc: data.totals.inc,
+				totalExp: data.totals.exp,
+				percentage: data.percentage
+			}
 		},
 
 		testing: function() {
@@ -150,8 +158,7 @@ var AppController = (function(budgetCtrl, UICtrl) {
 
 	var updateBudget = function() {
 		// 1. Calculate budget
-
-
+		budgetCtrl.calculateBudget();
 		// 2. return the budget
 
 		// 3. Display budget to UI
