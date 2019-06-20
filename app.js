@@ -16,7 +16,7 @@ var budgetController = (function() {
 	var calculateTotal = function(type) {
 		var sum = 0;
 		data.allItems[type].forEach(function(cur) {
-			sum += cur.value; // cur aka current refers to income or expense object stored in that array, in the data object. So, take the values by index, of the exp or inc array and sum them up
+			sum += cur.value; // cur aka current refers to income or expense object stored in Totals object & its array, in the data object. So, take the values by index, of the exp or inc array and sum them up
 		});
 		data.totals[type] = sum;
 	}
@@ -57,10 +57,11 @@ var budgetController = (function() {
 			return newItem;
 		},
 
-		calculateBudget: function() {
+		calculateBudget: function() { // has access to the private calculateTotal func because closures 🧙‍♂️
 
-			// 1. Calculate total income and expenses
-
+			// 1. Calculate total income and expenses (type: exp/inc from data object)
+			calculateTotal('exp');
+			calculateTotal('inc');
 			// 2. Calculate the budget: income - expenses
 
 			// 3. Calculate the percentage of income that we spend
