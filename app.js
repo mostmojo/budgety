@@ -66,7 +66,11 @@ var budgetController = (function() {
 			// 2. Calculate the budget: income - expenses
 			data.budget = data.totals.inc - data.totals.exp;
 			// 3. Calculate the percentage of income that we spend (exp/inc * 100)
-			data.percentage = Math.round((data.totals.exp / data.totals.inc) * 100);
+			if (data.totals.inc > 0) {
+				data.percentage = Math.round((data.totals.exp / data.totals.inc) * 100);
+			} else {
+				data.percentage = -1;
+			}
 		},
 
 		getBudget: function() {
@@ -88,6 +92,7 @@ var budgetController = (function() {
 
 // UI CONTROLLER (Grabs any value the user inputs into the given fields)
 var UIController = (function() {
+
 	var DOMStrings = {
 		inputType: '.add__type',
 		inputDescription: '.add__description',
@@ -127,7 +132,7 @@ var UIController = (function() {
 
 		clearFields: function() {
 			var fields, fieldsArr;
-			fields = document.querySelectorAll(DOMstrings.inputDescription + ', ' + DOMStrings.inputValue);
+			fields = document.querySelectorAll(DOMStrings.inputDescription + ', ' + DOMStrings.inputValue);
 			fieldsArr = Array.prototype.slice.call(fields);
 			fieldsArr.forEach(function(current, index, array) {
 				current.value = "";
@@ -160,8 +165,9 @@ var AppController = (function(budgetCtrl, UICtrl) {
 		// 1. Calculate budget
 		budgetCtrl.calculateBudget();
 		// 2. return the budget
-
+		var budget = budgetCtrl.getBudget();
 		// 3. Display budget to UI
+		console.log(budget);
 	}
 
 	var ctrlAddItem = function() {
