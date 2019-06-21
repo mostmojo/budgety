@@ -66,7 +66,7 @@ var budgetController = (function() {
         deleteItem: function(type, id) {
             var ids, index;
 
-            var ids = data.allItems[type].map(function(current){
+            ids = data.allItems[type].map(function(current) {
                 return current.id;
             });
 
@@ -233,9 +233,10 @@ var AppController = (function(budgetCtrl, UICtrl) {
 			// inc-1 => will be `.split` into ["inc", "1"] w/ this JS method
 			splitID = itemID.split('-');
 			type = splitID[0];
-			ID = splitID[1];
+			ID = parseInt(splitID[1]);
 
 			// 1. Delete the item from the data structure
+			budgetCtrl.deleteItem(type, ID);
 
 			// 2. Delete the item from the UI
 
