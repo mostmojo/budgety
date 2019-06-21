@@ -74,7 +74,7 @@ var myBankAccount = (function() {
 
 * Adding a condition like `if(input.description !== "" && !isNaN(input.value) && input.value > 0)` checks whether description is not empty, and the NaN operator boolean is false, thus there is a numeric value and it's also > 0.
 
-* Using `parseInt(splitID[1])` takes the number 'string' and converts it to an integer. Ex. `'income-1'`, splits into `['income', '1']`, which is then stored in `splitID = '1'`. Thus, with parseInt(), it's converted to `splitID = 1;`
+* **Convert input fields to numbers:** Using `parseInt(splitID[1])` takes the number 'string' and converts it to an integer. Ex. `'income-1'`, splits into `['income', '1']`, which is then stored in `splitID = '1'`. Thus, with parseInt(), it's converted to `splitID = 1;`
 
 ----------
 
