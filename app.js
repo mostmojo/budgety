@@ -66,13 +66,8 @@ var budgetController = (function() {
         deleteItem: function(type, id) {
             var ids, index;
 
-            // id = 6
-            // data.allItems[type][id];
-            // ids = [1 2 4 6 8]
-            // index = 3
-
-            var ids = data.allItems[type].map(function(current){ //creates new array, same as old one with value of current argument too
-                return current.id; // say a 6 was passed in here, or that's what we want, we use indexOf() to find its index
+            var ids = data.allItems[type].map(function(current){
+                return current.id;
             });
 
             index = ids.indexOf(id);
