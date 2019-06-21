@@ -17,6 +17,14 @@
 * Re-calculate budget
 * Update the UI
 
+## Pt. 3
+
+* Calculate percentages
+* Update percentages in UI
+* Display the current month and year
+* Number formatting
+* Improve input field UX
+
 ----------
 
 ## Modules
@@ -80,8 +88,16 @@ var myBankAccount = (function() {
 
 ### High level overview of app
 
+**Pt.1**
+
 <p align="center">
   <img width="720" height="420" src="https://res.cloudinary.com/mostmojo/image/upload/v1561041646/Screenshot_2019-06-20_at_15.38.40.png">
+</p>
+
+**Pt. 2** - Notice: The importance of *reusable* functions like `updateBudget()`
+
+<p align="center">
+  <img width="720" height="420" src="https://res.cloudinary.com/mostmojo/image/upload/v1561114412/Screenshot_2019-06-21_at_11.53.06.png">
 </p>
 
 ----------
