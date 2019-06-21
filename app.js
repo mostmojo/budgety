@@ -162,7 +162,8 @@ var UIController = (function() {
 		incomeLabel: '.budget__income--value',
 		expensesLabel: '.budget__expenses--value',
 		percentageLabel: '.budget__expenses--percentage',
-		container: '.container'
+		container: '.container',
+		expensesPercLabel: '.item__percentage'
 	};
 
 	return {
@@ -219,6 +220,24 @@ var UIController = (function() {
 			} else {
 				document.querySelector(DOMStrings.percentageLabel).textContent = '---';
 			}
+		},
+
+		displayPercentages: function(percentages) {
+			var fields = document.querySelectorAll(DOMStrings.expensesPercLabel);
+
+			var nodeListForEach = function(list, callback) {
+				for (var i = 0; i < list.length; i++) {
+					callback(list[i], i); // current -> list[i], index -> i; In each iteration of this loop, the callback fn gets called
+				}
+			}
+			nodeListForEach(fields, function(current, index) {
+
+				if (percentages[index] > 0) {
+					current.textContent = percentages[index] + "%";
+				} else {
+					current.textContent = '---';
+				}
+			});
 		},
 
 		getDOMStrings: function() {
