@@ -73,7 +73,7 @@ var budgetController = (function() {
             index = ids.indexOf(id);
 
             if (index !== -1) {
-                data.allItems[type].splice(index, 1);
+                data.allItems[type].splice(index, 1); // splice takes 2 params: index var & how many to delete
             }
         },
 
