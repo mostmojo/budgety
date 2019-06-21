@@ -5,7 +5,17 @@ var budgetController = (function() {
 		this.id = id;
 		this.description = description;
 		this.value = value;
+		this.percentage = -1;
 	};
+
+	// Has to be a prototype of parent constructor Expense as later can be access by instances of expenses
+	Expense.prototype.calcPercentage = function(totalIncome) {
+		if (totalIncome > 0){
+			this.percentage = Math.round((this.value / totalIncome) * 100);
+		} else {
+			this.percentage = -1;
+		}
+	}
 
 	var Income = function(id, description, value) {
 		this.id = id;
@@ -89,6 +99,21 @@ var budgetController = (function() {
 			} else {
 				data.percentage = -1;
 			}
+
+			// Expense = 100 & income = 300; spent 33.333% = 100/300 = 0.333 * 100. THEN Math.round()
+		},
+
+		calculatePercentages: function() {
+
+			/*
+			a = 20
+			b = 10
+			c = 40
+			income = 100
+			a = 20/100 = 20%
+			b = 10/100 = 10%
+			c = 40/100 = 40%
+			*/
 		},
 
 		getBudget: function() {
