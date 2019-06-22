@@ -241,17 +241,31 @@ var UIController = (function() {
 		},
 
 		formatNumber: function(num, type) {
+			var numSplit, int, dec;
 			/*
 
 			+ or - before number
 			exactly 2 decimal places
 			comma separating the thousands
+			2310.4567 -> 2,310.46
+			2000 -> 2,000.00
+
 			*/
 
 			num = Math.abs(num);
 			num = num.toFixed(2); // method of number prototype to give a number 2 decimals
 
-		}
+			numSplit = num.split('.'); // [2310, 45]
+
+			int = numSplit[0]; // [2310]
+			if (int.length > 3) {
+				int = int.substr(0, int.length - 3) + ',' + int.substr(int.length - 3, 3); // input 23510, output 23, 510 (because length is 5 - 3 puts the comma at 23, <-)
+			}
+
+			dec = numSplit[1]; // [45]
+
+			type === 'exp'
+		},
 
 		getDOMStrings: function() {
 			return DOMStrings; // this exposes the private DOMStrings object into the public
