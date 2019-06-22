@@ -240,6 +240,17 @@ var UIController = (function() {
 			});
 		},
 
+		formatNumber: function(num, type) {
+			/*
+
+			+ or - before number
+			exactly 2 decimal places
+			comma separating the thousands
+			*/
+
+			num = Math.abs(num);
+		}
+
 		getDOMStrings: function() {
 			return DOMStrings; // this exposes the private DOMStrings object into the public
 		}
