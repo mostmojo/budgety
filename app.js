@@ -166,7 +166,7 @@ var UIController = (function() {
 		expensesPercLabel: '.item__percentage'
 	};
 
-	var formatNumber = function(num, type) {
+	var formatNumber = function(num, type) { // private because only accessed by addListItem - a UI controller fn
 		var numSplit, int, dec, type;
 		/*
 
@@ -190,7 +190,7 @@ var UIController = (function() {
 
 		dec = numSplit[1]; // [45]
 
-		return (type === 'exp' ? '-' : '+') + ' ' + int + dec;
+		return (type === 'exp' ? '-' : '+') + ' ' + int + '.' + dec;
 	};
 
 	return {
