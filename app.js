@@ -249,6 +249,8 @@ var UIController = (function() {
 			*/
 
 			num = Math.abs(num);
+			num = num.toFixed(2); // method of number prototype to give a number 2 decimals
+
 		}
 
 		getDOMStrings: function() {
