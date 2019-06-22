@@ -163,7 +163,8 @@ var UIController = (function() {
 		expensesLabel: '.budget__expenses--value',
 		percentageLabel: '.budget__expenses--percentage',
 		container: '.container',
-		expensesPercLabel: '.item__percentage'
+		expensesPercLabel: '.item__percentage',
+		dateLabel: '.budget__title--month'
 	};
 
 	var formatNumber = function(num, type) { // private because only accessed by addListItem - a UI controller fn
@@ -270,6 +271,14 @@ var UIController = (function() {
 			});
 		},
 
+		displayMonth: function() {
+			var now, year, month;
+
+			now = new Date ();
+			year = now.getFullYear(); // Data constructor object function
+			document.querySelector(DOMStrings.dateLabel).textContent = year;
+		},
+
 		getDOMStrings: function() {
 			return DOMStrings; // this exposes the private DOMStrings object into the public
 		}
@@ -360,6 +369,7 @@ var AppController = (function(budgetCtrl, UICtrl) {
 	return {
 		init: function() {
 			console.log('Application has started.');
+			UICtrl.displayMonth();
 			UICtrl.displayBudget({
 				budget: 0,
 				totalInc: 0,
