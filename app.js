@@ -281,6 +281,12 @@ var UIController = (function() {
 			document.querySelector(DOMStrings.dateLabel).textContent = months[month] + ', ' + year;
 		},
 
+		changedType: function() {
+
+
+
+		},
+
 		getDOMStrings: function() {
 			return DOMStrings; // this exposes the private DOMStrings object into the public
 		}
@@ -300,6 +306,7 @@ var AppController = (function(budgetCtrl, UICtrl) {
 			}
 		});
 		document.querySelector(getDOMStringsFromUIController.container).addEventListener('click', ctrlDeleteItem);
+		document.querySelector(getDOMStringsFromUIController.inputType).addEventListener('change', UICtrl.changedType);
 	};
 
 
