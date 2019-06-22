@@ -241,7 +241,7 @@ var UIController = (function() {
 		},
 
 		formatNumber: function(num, type) {
-			var numSplit, int, dec;
+			var numSplit, int, dec, type;
 			/*
 
 			+ or - before number
@@ -264,7 +264,7 @@ var UIController = (function() {
 
 			dec = numSplit[1]; // [45]
 
-			type === 'exp'
+			return (type === 'exp' ? '-' : '+') + ' ' + int + dec;
 		},
 
 		getDOMStrings: function() {
