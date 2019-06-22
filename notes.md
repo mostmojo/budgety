@@ -90,14 +90,20 @@ var myBankAccount = (function() {
 
 **Pt.1**
 
-<p align="center">
+<p align="left">
   <img width="720" height="420" src="https://res.cloudinary.com/mostmojo/image/upload/v1561041646/Screenshot_2019-06-20_at_15.38.40.png">
 </p>
 
 **Pt. 2** - Notice: The importance of *reusable* functions like `updateBudget()`
 
-<p align="center">
+<p align="left">
   <img width="720" height="420" src="https://res.cloudinary.com/mostmojo/image/upload/v1561114412/Screenshot_2019-06-21_at_11.53.06.png">
+</p>
+
+**Pt. 3 - Final**
+
+<p align="left">
+  <img width="720" height="420" src="https://res.cloudinary.com/mostmojo/image/upload/v1561228413/Screenshot_2019-06-22_at_19.29.02.png">
 </p>
 
 ----------
